@@ -73,6 +73,8 @@ void mouseEvent(DWORD dwFlags, DWORD mouseData = 0)
 Gopher::Gopher(CXBOXController * controller)
   : _controller(controller)
 {
+    _hidden = true;
+    setWindowVisibility(_hidden);
 }
 
 // Description:
@@ -97,22 +99,22 @@ void Gopher::loadConfigFile()
   //--------------------------------
   // Controller bindings
   //--------------------------------
-  GAMEPAD_DPAD_UP = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_UP").c_str(), 0, 0);
-  GAMEPAD_DPAD_DOWN = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_DOWN").c_str(), 0, 0);
-  GAMEPAD_DPAD_LEFT = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_LEFT").c_str(), 0, 0);
-  GAMEPAD_DPAD_RIGHT = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_RIGHT").c_str(), 0, 0);
-  GAMEPAD_START = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_START").c_str(), 0, 0);
-  GAMEPAD_BACK = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_BACK").c_str(), 0, 0);
-  GAMEPAD_LEFT_THUMB = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_LEFT_THUMB").c_str(), 0, 0);
-  GAMEPAD_RIGHT_THUMB = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_RIGHT_THUMB").c_str(), 0, 0);
-  GAMEPAD_LEFT_SHOULDER = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_LEFT_SHOULDER").c_str(), 0, 0);
-  GAMEPAD_RIGHT_SHOULDER = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_RIGHT_SHOULDER").c_str(), 0, 0);
-  GAMEPAD_A = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_A").c_str(), 0, 0);
-  GAMEPAD_B = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_B").c_str(), 0, 0);
-  GAMEPAD_X = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_X").c_str(), 0, 0);
-  GAMEPAD_Y = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_Y").c_str(), 0, 0);
-  GAMEPAD_TRIGGER_LEFT = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_TRIGGER_LEFT").c_str(), 0, 0);
-  GAMEPAD_TRIGGER_RIGHT = strtol(cfg.getValueOfKey<std::string>("GAMEPAD_TRIGGER_RIGHT").c_str(), 0, 0);
+  GAMEPAD_DPAD_UP = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_UP").c_str());
+  GAMEPAD_DPAD_DOWN = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_DOWN").c_str());
+  GAMEPAD_DPAD_LEFT = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_LEFT").c_str());
+  GAMEPAD_DPAD_RIGHT = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_DPAD_RIGHT").c_str());
+  GAMEPAD_START = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_START").c_str());
+  GAMEPAD_BACK = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_BACK").c_str());
+  GAMEPAD_LEFT_THUMB = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_LEFT_THUMB").c_str());
+  GAMEPAD_RIGHT_THUMB = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_RIGHT_THUMB").c_str());
+  GAMEPAD_LEFT_SHOULDER = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_LEFT_SHOULDER").c_str());
+  GAMEPAD_RIGHT_SHOULDER = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_RIGHT_SHOULDER").c_str());
+  GAMEPAD_A = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_A").c_str());
+  GAMEPAD_B = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_B").c_str());
+  GAMEPAD_X = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_X").c_str());
+  GAMEPAD_Y = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_Y").c_str());
+  GAMEPAD_TRIGGER_LEFT = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_TRIGGER_LEFT").c_str());
+  GAMEPAD_TRIGGER_RIGHT = atoi(cfg.getValueOfKey<std::string>("GAMEPAD_TRIGGER_RIGHT").c_str());
 
   //--------------------------------
   // Advanced settings
